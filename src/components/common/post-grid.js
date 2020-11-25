@@ -16,29 +16,30 @@ export default function PostGrid({ posts }) {
 
   return (
     <section className="grid-pagination-container">
-      {paginatedPosts.map((post, index) => (
-        <div className="post-container">
-          <figure>
-            <Link to={post.link}>
-              <img
-                src={require(`../../assets/images/${post.image}`).default}
-                alt={post.image}
-              />
-            </Link>
-          </figure>
-          <TagRow tags={post.categories} />
-          <h2>{post.title}</h2>
-          <p className="author-text">
-            <span>
-              By :<Link to={`/authors/${post.author}`}> {post.author} </Link>
-            </span>
-            <span>- {post.date}</span>
-          </p>
-          <p className="description-text">{post.description}</p>
-          <Link to={post.link}>Read More...</Link>
-        </div>
-      ))}
-      <section className="post-grid container"></section>
+      <section className="post-grid container">
+        {paginatedPosts.map((post, index) => (
+          <div className="post-container">
+            <figure>
+              <Link to={post.link}>
+                <img
+                  src={require(`../../assets/images/${post.image}`).default}
+                  alt={post.image}
+                />
+              </Link>
+            </figure>
+            <TagRow tags={post.categories} />
+            <h2>{post.title}</h2>
+            <p className="author-text">
+              <span>
+                By :<Link to={`/authors/${post.author}`}> {post.author} </Link>
+              </span>
+              <span>- {post.date}</span>
+            </p>
+            <p className="description-text">{post.description}</p>
+            <Link to={post.link}>Read More...</Link>
+          </div>
+        ))}
+      </section>
       <Pagination
         simple
         showSizeChanger
